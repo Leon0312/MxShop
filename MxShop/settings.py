@@ -28,7 +28,9 @@ SECRET_KEY = 'n$$_6t-q9)rtyd&)z3r17(o(k9$g-ts(@+l3z+1m-*bv=wfvn)'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# 替换系统默认的User model
 
+AUTH_USER_MODEL = 'users.UserProfile'
 
 # Application definition
 
@@ -39,6 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'DjangoUeditor',
+    'goods',
+    'users',
+    'trade',
+    'user_operation',
 
 ]
 
