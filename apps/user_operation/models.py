@@ -39,7 +39,7 @@ class UserLeavingMessage(models.Model):
         (5, "求购")
     )
     user = models.ForeignKey(User, verbose_name="用户")
-    msg_type = models.CharField(default=1, choices=MSG_CHOICES, verbose_name="留言类型")
+    msg_type = models.CharField(default=1, max_length=5, choices=MSG_CHOICES, verbose_name="留言类型")
     subject = models.CharField(max_length=30, default=" ", verbose_name="留言标题")
     message = models.TextField(default=" ", verbose_name="留言内容", help_text="留言内容")
     file = models.FileField(upload_to="")

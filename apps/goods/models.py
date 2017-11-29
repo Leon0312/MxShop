@@ -19,10 +19,10 @@ class GoodsCategory(models.Model):
     # 类的简单描述
     desc = models.TextField(default="", verbose_name="类目描述", help_text="类目描述")
     # category_type 用于说明该类的级别（比如三层级目录，）
-    category_type = models.CharField(choices=CATEGORY_TYPE, verbose_name="类目级别", help_text="类目级别")
+    category_type = models.CharField(choices=CATEGORY_TYPE, max_length=10, verbose_name="类目级别", help_text="类目级别")
     parent_category = models.ForeignKey("self", null=True, blank=True, related_name="sub_cat", verbose_name="父类别")
 
-    is_tab = models.BooleanField(default=False, null=True, blank=True, verbose_name="是否导航", help_text="是否导航")
+    is_tab = models.BooleanField(default=False, verbose_name="是否导航", help_text="是否导航")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
