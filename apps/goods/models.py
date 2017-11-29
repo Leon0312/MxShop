@@ -37,6 +37,7 @@ class GoodsCategoryBrand(models.Model):
     """
     品牌名
     """
+    category = models.ForeignKey(GoodsCategory, null=True, blank=True, verbose_name="商品类目")
     name = models.CharField(default="", max_length=30, verbose_name="品牌名", help_text="品牌名")
     desc = models.CharField(default="", max_length=30, verbose_name="品牌描述", help_text="品牌描述")
     # 用于存储图片文件。
@@ -61,6 +62,7 @@ class Goods(models.Model):
     name = models.CharField(max_length=100, verbose_name="商品名字")
     click_num = models.IntegerField(default=0, verbose_name="点击数")
     sold_num = models.IntegerField(default=0, verbose_name="销量")
+    fav_num = models.IntegerField(default=0, verbose_name="收藏数")
     goods_num = models.IntegerField(default=0, verbose_name="库存")
     market_price = models.FloatField(default=0, verbose_name="市场价格")
     shop_price = models.FloatField(default=0, verbose_name="市场价")
