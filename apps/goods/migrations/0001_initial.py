@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(default='', help_text='品牌名', max_length=30, verbose_name='品牌名')),
                 ('desc', models.CharField(default='', help_text='品牌描述', max_length=30, verbose_name='品牌描述')),
-                ('image', models.ImageField(max_length=200, upload_to='brand/images')),
+                ('image', models.ImageField(max_length=200, upload_to='brands/images')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now, verbose_name='添加时间')),
             ],
             options={

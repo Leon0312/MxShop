@@ -41,7 +41,7 @@ class GoodsCategoryBrand(models.Model):
     name = models.CharField(default="", max_length=30, verbose_name="品牌名", help_text="品牌名")
     desc = models.CharField(default="", max_length=30, verbose_name="品牌描述", help_text="品牌描述")
     # 用于存储图片文件。
-    image = models.ImageField(max_length=200, upload_to="brand/images")
+    image = models.ImageField(max_length=200, upload_to="brands/images")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
@@ -65,14 +65,14 @@ class Goods(models.Model):
     fav_num = models.IntegerField(default=0, verbose_name="收藏数")
     goods_num = models.IntegerField(default=0, verbose_name="库存")
     market_price = models.FloatField(default=0, verbose_name="市场价格")
-    shop_price = models.FloatField(default=0, verbose_name="市场价")
+    shop_price = models.FloatField(default=0, verbose_name="售价")
     # 商品描述
     goods_brief = models.TextField(max_length=500, verbose_name="简述商品")
     # 富文本描述
     goods_desc = UEditorField(verbose_name=u"内容", imagePath="goods/images/", width=1000, height=300,
                               filePath="goods/files/", default="")
     ship_free = models.BooleanField(default=False, verbose_name="是否包邮")
-    front_page_image = models.ImageField(upload_to="", verbose_name="单独的封面图，不从轮播图中取")
+    front_page_image = models.ImageField(upload_to="goods/images", verbose_name="单独的封面图，不从轮播图中取")
     is_new = models.BooleanField(default=False, verbose_name="是否为新品")
     is_hot = models.BooleanField(default=False, verbose_name="是否热销")
 
@@ -92,7 +92,6 @@ class GoodsImage(models.Model):
     """
     goods = models.ForeignKey(Goods, verbose_name="商品", related_name="images")
     image = models.ImageField(upload_to="goods/images/", verbose_name="详情")
-    image_url = models.CharField(max_length=300, null=True, blank=True, verbose_name="图片Url")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
