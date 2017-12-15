@@ -21,7 +21,7 @@ class UserProfile(AbstractUser):
         verbose_name_plural = "用户信息"
 
     def __repr__(self):
-        return self.name
+        return self.username
 
 
 class VerifyCode(models.Model):
